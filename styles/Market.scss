@@ -1,0 +1,14 @@
+.container-pair {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  width: 100%;
+
+  .container-pair-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 500px;
+    overflow-x: auto;
+  }
+}
