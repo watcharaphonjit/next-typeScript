@@ -1,7 +1,3 @@
 export default function Home() {
-  return (
-    <div className="container-image">
-      <img className="image" src={"images/profile.jpg"} />
-    </div>
-  );
+  return <div className="container-home">Hi! let's select quize</div>;
 }

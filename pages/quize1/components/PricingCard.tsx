@@ -10,7 +10,6 @@ interface PropsPricingCard {
 }
 
 const PricingCard: React.FC<PropsPricingCard> = ({ ticker }) => {
-  console.log(ticker);
   return (
     <Card>
       {ticker ? (

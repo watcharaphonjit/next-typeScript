@@ -1,29 +1,48 @@
 import Link from "next/link";
 import { MenuList } from "../provider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { Menu, MenuProps } from "antd";
 
 const NavBar = () => {
+  const route = useRouter();
+  const { pathname } = route;
+  const [current, setCurrent] = useState("1");
   const [menu, _] = useState<MenuList[]>([
     {
-      label: "Home",
-      href: "/",
+      label: (
+        <Link className="nav-bar-link" href="/" rel="noopener noreferrer">
+          Home
+        </Link>
+      ),
+      key: "/",
     },
     {
-      label: "Market",
-      href: "/market/",
+      label: (
+        <Link className="nav-bar-link" href="/quize1" rel="noopener noreferrer">
+          Quize 1
+        </Link>
+      ),
+      key: "/quize1",
     },
   ]);
 
+  useEffect(() => {
+    setCurrent(pathname);
+  }, []);
+
+  const onClick: MenuProps["onClick"] = (e) => {
+    setCurrent(e.key);
+  };
+
   return (
-    <section className="container-nav-bar">
-      {menu.map((el) => (
-        <div key={el.label} className="d-inline">
-          <Link className="nav-bar-link" href={el.href}>
-            {el.label}
-          </Link>
-        </div>
-      ))}
-    </section>
+    <Menu
+      className="container-nav-bar"
+      onClick={onClick}
+      selectedKeys={[current]}
+      mode="horizontal"
+      items={menu}
+    />
   );
 };
 

@@ -42,3 +42,15 @@ export interface TickersResponseTransformed {
   volume: string;
   weightedAvgPrice: string;
 }
+
+export const transformSymbol = (
+  tickers: TickersResponse[]
+): TickersResponseTransformed[] =>
+  tickers.map((el) => ({
+    ...el,
+    lastPrice: Number(el.lastPrice).toLocaleString(),
+    symbolTransformed: transformedTextSymbol(el.symbol),
+  }));
+
+const transformedTextSymbol = (symbol: string): string =>
+  symbol.replace("_", "/").toUpperCase();

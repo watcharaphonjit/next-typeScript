@@ -1,4 +1,4 @@
 export interface MenuList {
-  label: string;
-  href: string;
+  label: any;
+  key: string;
 }
