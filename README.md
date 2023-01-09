@@ -1,1 +1,7 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+## Installation
+
+Using node version `14.19.3`
+
+```
+npm i
+```
