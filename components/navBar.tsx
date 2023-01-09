@@ -25,6 +25,14 @@ const NavBar = () => {
       ),
       key: "/quize1",
     },
+    {
+      label: (
+        <Link className="nav-bar-link" href="/quize2" rel="noopener noreferrer">
+          Quize 2
+        </Link>
+      ),
+      key: "/quize2",
+    },
   ]);
 
   useEffect(() => {
